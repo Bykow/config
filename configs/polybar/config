@@ -1,5 +1,5 @@
 [colors]
-background = #dd232C31
+background = #22232C31
 background-alt = #ff232C31
 foreground = #188dc5
 foreground-alt = #555
@@ -9,7 +9,7 @@ alert = #bd2c40
 
 [bar/parent]
 width = 100%
-height = 27
+height = 25
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -46,6 +46,12 @@ modules-left = i3
 modules-center = title
 modules-right = wlan wip
 
+[bar/second]
+inherit = bar/parent
+bottom = true
+monitor = DP1
+
+modules-right = i3roman
 
 [module/bspwm]
 type = internal/bspwm
@@ -76,7 +82,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -103,15 +109,67 @@ label-urgent = %icon% %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-; Separator in between workspaces
-; label-separator = |
+ws-icon-0 = "1;"
+ws-icon-1 = "2;"
+ws-icon-2 = "3;"
+ws-icon-3 = "4;"
+ws-icon-4 = "5;"
+ws-icon-5 = "6;"
+ws-icon-6 = "7;"
+ws-icon-7 = "8;"
+
+[module/i3roman]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-overline = ${module/bspwm.label-focused-overline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-overline = ${self.label-focused-overline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ws-icon-0 = "1;"
 ws-icon-1 = "2;"
 ws-icon-2 = "3;"
 ws-icon-3 = "4;"
 ws-icon-4 = "5;"
-ws-icon-default = 
+ws-icon-5 = "6;"
+ws-icon-6 = "7;"
+ws-icon-7 = "8;"
+ws-icon-8 = "9;I"
+ws-icon-9 = "10;II"
+ws-icon-10 = "11;III"
+ws-icon-11 = "12;IV"
+ws-icon-12 = "13;V"
+ws-icon-13 = "14;VI"
+ws-icon-14 = "15;VII"
+ws-icon-15 = "16;VIII"
+
+; ws-icon-default = 
 
 [module/date]
 type = internal/date
