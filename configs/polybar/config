@@ -52,6 +52,7 @@ bottom = true
 monitor = DP1
 
 modules-right = i3roman
+modules-center = date
 
 [module/bspwm]
 type = internal/bspwm
