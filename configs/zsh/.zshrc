@@ -39,4 +39,5 @@ alias i3config="subl3 ~/.i3/config"
 alias barconfig="subl3 ~/.config/polybar/config"
 alias polyconfig="subl3 ~/.config/polybar/config"
 alias polybarconfig="subl3 ~/.config/polybar/config"
+alias yeeeet="yay -Syyu"
 
