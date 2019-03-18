@@ -34,10 +34,17 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+d exec --no-startup-id "rofi -modi window,drun,calc -show drun"
-bindsym $mod+Tab exec --no-startup-id "rofi -modi window,drun,1pass:rofi-1pass -show window"
-bindsym $mod+p exec eval $(op signin my); exec --no-startup-id "rofi -modi 1pass:rofi-1pass -show 1pass"
+bindsym $mod+d exec --no-startup-id "rofi -modi drun,ssh,calc -show drun"
+bindsym $mod+Tab exec --no-startup-id "rofi -modi window -show window"
+bindsym $mod+Shift+p exec eval $(op signin my)
+bindsym $mod+p exec --no-startup-id "rofi -modi 1pass:rofi-1pass -show 1pass"
 bindsym $mod+l exec --no-startup-id "rofi-wifi-menu"
+
+# theme switching
+set $script ~/workspace/personal/i3wm-themer/src/i3wm-themer.py
+set $config ~/workspace/personal/i3wm-themer/src/config.yaml
+set $theme ~/workspace/personal/i3wm-themer/src/themes/011.json
+bindsym $mod+9 exec --no-startup-id python $script --config $config --load $theme
 
 
 ################################################################################################
@@ -280,9 +287,10 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id start_conky_blue
 exec --no-startup-id xautolock -time 10 -locker betterlockscreen --lock dimblur 
-exec_always --no-startup-id sh ~/.config/polybar/scripts/polybars
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id sh ~/.config/polybar/i3wmthemer_bar_launch.sh
+
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -316,14 +324,13 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #224f5b66 #188dc5 #FDF6E3
-  client.focused_inactive #2F3D44 #22343d46 #188dc5 #454948
-  client.unfocused        #2F3D44 #22343d46 #188dc5 #454948
-  client.urgent           #CB4B16 #22FDF6E3 #188dc5 #268BD2
-  client.placeholder      #000000 #220c0c0c #ffffff #000000 
+client.focused #b0c4bb #2f2f38 #b0c4bb #81a2be #81a2be
+client.focused_inactive #b0c4bb #2f2f38 #b0c4bb #688486 #688486
+client.unfocused #b0c4bb #2f2f38 #b0c4bb #688486 #688486
+client.urgent #b0c4bb #2f2f38 #b0c4bb #688486 #688486
+client.placeholder #b0c4bb #2f2f38 #b0c4bb #688486 #688486
 
-  client.background       #2B2C2B
+client.background #2f2f38
 
 #############################
 ### settings for i3-gaps: ###

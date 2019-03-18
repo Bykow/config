@@ -34,10 +34,10 @@ source /usr/share/fzf/key-bindings.zsh
 # ALIAS
 alias fixwifi="sudo ip link set wlp1s0 down; sudo ip link set wlp1s0 up"
 alias fixmonitor="autorandr -c && i3-msg restart"
-alias zshconfig="subl3 ~/.zshrc"
-alias i3config="subl3 ~/.i3/config"
-alias barconfig="subl3 ~/.config/polybar/config"
-alias polyconfig="subl3 ~/.config/polybar/config"
-alias polybarconfig="subl3 ~/.config/polybar/config"
-alias yeeeet="yay -Syyu"
+alias zshconfig="code ~/.zshrc"
+alias i3config="code ~/.config/i3/config"
+alias barconfig="code ~/.config/polybar/config"
+alias polyconfig="code ~/.config/polybar/config"
+alias polybarconfig="code ~/.config/polybar/config"
+alias yeet="yay -Syyu"
 

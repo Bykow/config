@@ -1,0 +1,7 @@
+#! /bin/bash
+
+toapply="$1"
+echo "python ~/workspace/personal/i3wm-themer/src/i3wm-themer.py --config ~/workspace/personal/i3wm-themer/src/config.yaml --load ~/workspace/personal/i3wm-themer/src/themes/$1.json
+"
+python ~/workspace/personal/i3wm-themer/src/i3wm-themer.py --config ~/workspace/personal/i3wm-themer/src/config.yaml --load "~/workspace/personal/i3wm-themer/src/themes/$1.json"
+

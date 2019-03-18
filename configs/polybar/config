@@ -1,21 +1,17 @@
-[colors]
-background = #bb1b2a39
-background-alt = #ff232C31
-foreground = #188dc5
-foreground-alt = #555
-primary = ${xrdb:color7:#222}
-secondary = #e60053
-alert = #bd2c40
-
-[bar/parent]
+[bar/i3wmthemer_bar]
 width = 100%
-height = 25
+height = 27
+radius = 0
+fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = #2f2f38
+foreground = #b0c4bb
 
 line-size = 3
-line-color = #fff
+line-color =
+
+border-size = 0
+border-color =
 
 padding-left = 0
 padding-right = 2
@@ -23,58 +19,52 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = Source Code Pro Medium:pixelsize=10;1
-font-1 = FontAwesome5Free:pixelsize=10
-font-2 = FontAwesome5Free:style=Solid:pixelsize=10
-font-3 = FontAwesome5Brands:pixelsize=10
-font-4 = FontAwesome5Brands:style=Solid:pixelsize=10
-
-[bar/top]
-inherit = bar/parent
-
-tray-position = right
-
-modules-left = temperature memory cpu battery
-modules-center = date
-modules-right = spotify volume brightness
-
-[bar/bottom]
-inherit = bar/parent
-bottom = true
+font-0 = "Source Code Pro Semibold:size=10;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-2 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3
-modules-center = title
-modules-right = wlan wip
+modules-center = date
+modules-right = spotify battery
 
-[bar/second]
-inherit = bar/parent
+tray-position = right
+tray-padding = 1
+
+
+[bar/i3wmthemer_barsecond]
+width = 100%
+height = 27
+radius = 0
+fixed-center = true
 bottom = true
+
 monitor = DP1
 
-modules-right = i3roman
+background = #2f2f38
+foreground = #b0c4bb
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = "Source Code Pro Semibold:size=10;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-2 = "Font Awesome 5 Brands:size=10;1"
+
+modules-left = i3
 modules-center = date
+modules-right = spotify battery
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-overline = #72A1B2
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
+;tray-position = right
+;tray-padding = 1
 
 [module/i3]
 type = internal/i3
@@ -86,81 +76,36 @@ wrapping-scroll = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = #34343e
+label-mode-background = #2f2f38
 
-; focused = Active workspace on focused monitor
-label-focused = %icon% %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-overline = ${module/bspwm.label-focused-overline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon% %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-; visible = Active workspace on unfocused monitor
-label-visible = %icon% %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-overline = ${self.label-focused-overline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %icon% %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
-ws-icon-2 = "3;"
-ws-icon-3 = "4;"
-ws-icon-4 = "5;"
-ws-icon-5 = "6;"
-ws-icon-6 = "7;"
-ws-icon-7 = "8;"
-
-[module/i3roman]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-overline = ${module/bspwm.label-focused-overline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-background = #688486
+label-focused-foreground = #2f2f38
+label-focused-padding = 2
 
-; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-background = #81a2be
+label-unfocused-foreground = #2f2f38
+label-unfocused-padding = 2
 
-; visible = Active workspace on unfocused monitor
 label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
-label-visible-overline = ${self.label-focused-overline}
-label-visible-padding = ${self.label-focused-padding}
+label-visible-background = #81a2be
+label-visible-foreground = #2f2f38
+label-visible-padding = 2
 
-; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-background = #BA2922
+label-urgent-padding = 2
 
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
-ws-icon-2 = "3;"
-ws-icon-3 = "4;"
-ws-icon-4 = "5;"
-ws-icon-5 = "6;"
-ws-icon-6 = "7;"
-ws-icon-7 = "8;"
+ws-icon-0 = "1;1"
+ws-icon-1 = "2;2"
+ws-icon-2 = "3;3"
+ws-icon-3 = "4;4"
+ws-icon-4 = "5;5"
+ws-icon-5 = "6;6"
+ws-icon-6 = "7;7"
+ws-icon-7 = "8;8"
 ws-icon-8 = "9;I"
 ws-icon-9 = "10;II"
 ws-icon-10 = "11;III"
@@ -170,91 +115,114 @@ ws-icon-13 = "14;VI"
 ws-icon-14 = "15;VII"
 ws-icon-15 = "16;VIII"
 
-; ws-icon-default = 
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-foreground = #2f2f38
+format-connected-background = #81a2be
+format-connected-padding = 2
+label-connected = %essid%
+
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #2f2f38
+
+[module/eth]
+type = internal/network
+interface = enp0s3
+interval = 3.0
+
+format-connected-padding = 2
+format-connected-foreground = #2f2f38
+format-connected-background = #81a2be
+format-connected-prefix = " "
+format-connected-prefix-foreground = #2f2f38
+label-connected = %local_ip%
+
+format-disconnected =
 
 [module/date]
 type = internal/date
-date = %d.%m.%Y%
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
 time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-foreground = #2f2f38
+format-background = #81a2be
+format-padding = 2
+
+label = %date% %time%
+
+[module/spotify]
+type = custom/script
 interval = 1
-format-underline = #72A1B2
-label = %date%  -  %time%
-label-font = 10
+format = <label>
+format-padding = 1
+format-foreground = #2f2f38
+format-background = #81a2be
+exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
 
 [module/battery]
 type = custom/script
 exec = ~/.config/polybar/scripts/battery
 interval = 1
 format-prefix = " "
-format-underline = #72A1B2
+format-padding = 1
+format-foreground = #2f2f38
+format-background = #81a2be
 
-[module/wlan]
-type = custom/script
-exec = iwgetid -r
-interval = 1
-format-prefix = " "
-format-overline = #72A1B2
+[module/powermenu]
+type = custom/menu
 
-[module/brightness]
-type= custom/script
-exec = ~/.config/polybar/scripts/getbrightness
-interval = 0.5
-format-underline = #72A1B2
+expand-right = true
 
-[module/volume]
-type = custom/script
-exec = ~/.config/polybar/scripts/getvolume
-interval = 0.5
-format-underline = #72A1B2
+format-spacing = 1
 
-[module/memory]
-type = internal/memory
-format-prefix = " "
-format-underline = #72A1B2
-interval = 3
+label-open = 
+label-open-foreground = #81a2be
+label-close =  cancel
+label-close-foreground = #81a2be
+label-separator = |
+label-separator-foreground = #81a2be
 
-[module/cpu]
-type = internal/cpu
-format-prefix = " "
-format-underline = #72A1B2
-interval = 1
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = log off
+menu-0-2-exec = menu-open-3
 
-[module/title]
-format-overline = #72A1B2
-type = internal/xwindow
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
 
-[module/temperature]
-type = internal/temperature
-interval = 1
-thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
 
-format-underline = #72A1B2
-format = <ramp> <label>
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
+menu-3-0 = log off
+menu-3-0-exec = pkill -KILL -u $USER
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
 
-format-warn-underline = #f00
-warn-temperature = 75
-format-warn =  <label-warn>
-label-warn-foreground = #f00
+[settings]
+screenchange-reload = true
 
-[module/wip]
-format-connected-overline = #72A1B2
-format-disconnected-overline = #72A1B2
-type = internal/network
-interface = wlp1s0
-interval = 2
-
-label-connected = " %local_ip%     %downspeed%    %upspeed%"
-label-disconnected = "OFFLINE"
-
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = " "
-format = <label>
-exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
-format-underline = #1db954
+[global/wm]
+margin-top = 0
+margin-bottom = 0
