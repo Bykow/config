@@ -4,8 +4,8 @@ height = 27
 radius = 0
 fixed-center = true
 
-background = #2f2f38
-foreground = #b0c4bb
+background = #1e1e20
+foreground = #c5c8c6
 
 line-size = 3
 line-color =
@@ -14,10 +14,10 @@ border-size = 0
 border-color =
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 0
-module-margin-right = 2
+module-margin-right = 0
 
 font-0 = "Source Code Pro Semibold:size=10;1"
 font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
@@ -25,7 +25,7 @@ font-2 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3
 modules-center = date
-modules-right = spotify battery
+modules-right = previous spotify next battery
 
 tray-position = right
 tray-padding = 1
@@ -40,8 +40,8 @@ bottom = true
 
 monitor = DP1
 
-background = #2f2f38
-foreground = #b0c4bb
+background = #1e1e20
+foreground = #c5c8c6
 
 line-size = 3
 line-color =
@@ -53,7 +53,7 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 0
-module-margin-right = 2
+module-margin-right = 0
 
 font-0 = "Source Code Pro Semibold:size=10;1"
 font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
@@ -61,7 +61,7 @@ font-2 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3
 modules-center = date
-modules-right = spotify battery
+modules-right = previous spotify next battery
 
 ;tray-position = right
 ;tray-padding = 1
@@ -76,22 +76,22 @@ wrapping-scroll = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #34343e
-label-mode-background = #2f2f38
+label-mode-foreground = #1e1e20
+label-mode-background = #e39866
 
 label-focused = %icon%
-label-focused-background = #688486
-label-focused-foreground = #2f2f38
+label-focused-background = #dc7f41
+label-focused-foreground = #6b7443
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-background = #81a2be
-label-unfocused-foreground = #2f2f38
+label-unfocused-background = #e39866
+label-unfocused-foreground = #1e1e20
 label-unfocused-padding = 2
 
 label-visible = %icon%
-label-visible-background = #81a2be
-label-visible-foreground = #2f2f38
+label-visible-background = #e39866
+label-visible-foreground = #1e1e20
 label-visible-padding = 2
 
 label-urgent = %icon%
@@ -121,8 +121,8 @@ interface = net1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = #2f2f38
-format-connected-background = #81a2be
+format-connected-foreground = #e6a57a
+format-connected-background = #1e1e20
 format-connected-padding = 2
 label-connected = %essid%
 
@@ -133,7 +133,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = #2f2f38
+ramp-signal-foreground = #1e1e20
 
 [module/eth]
 type = internal/network
@@ -141,10 +141,10 @@ interface = enp0s3
 interval = 3.0
 
 format-connected-padding = 2
-format-connected-foreground = #2f2f38
-format-connected-background = #81a2be
+format-connected-foreground = #e6a57a
+format-connected-background = #1e1e20
 format-connected-prefix = " "
-format-connected-prefix-foreground = #2f2f38
+format-connected-prefix-foreground = #e6a57a
 label-connected = %local_ip%
 
 format-disconnected =
@@ -160,20 +160,11 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-foreground = #2f2f38
-format-background = #81a2be
+format-foreground = #1e1e20
+format-background = #c6723a
 format-padding = 2
 
 label = %date% %time%
-
-[module/spotify]
-type = custom/script
-interval = 1
-format = <label>
-format-padding = 1
-format-foreground = #2f2f38
-format-background = #81a2be
-exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
 
 [module/battery]
 type = custom/script
@@ -181,44 +172,42 @@ exec = ~/.config/polybar/scripts/battery
 interval = 1
 format-prefix = " "
 format-padding = 1
-format-foreground = #2f2f38
-format-background = #81a2be
+format-foreground = #1e1e20
+format-background = #c6723a
 
-[module/powermenu]
-type = custom/menu
+[module/previous]
+type = custom/script
+interval = 86400
+format = "%{T3}<label>"
+format-padding = 2
+; Previous song icon
+exec = echo ""
+format-foreground = #1e1e20
+format-background = #c6723a
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 
-expand-right = true
+[module/next]
+type = custom/script
+interval = 86400
+format = "%{T3}<label>"
+format-padding = 2
+; Next song icon
+exec = echo ""
+format-foreground = #1e1e20
+format-background = #c6723a
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-format-spacing = 1
-
-label-open = 
-label-open-foreground = #81a2be
-label-close =  cancel
-label-close-foreground = #81a2be
-label-separator = |
-label-separator-foreground = #81a2be
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-0-2 = log off
-menu-0-2-exec = menu-open-3
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
-
-menu-2-0 = power off
-menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-menu-3-0 = log off
-menu-3-0-exec = pkill -KILL -u $USER
-menu-3-1 = cancel
-menu-3-1-exec = menu-open-0
+[module/spotify]
+type = custom/script
+interval = 1
+format = <label>
+format-padding = 1
+format-foreground = #1e1e20
+format-background = #c6723a
+exec = python ~/.config/polybar/scripts/spotify/spotify_status.py -f '{artist}: {song}'
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
 [settings]
 screenchange-reload = true

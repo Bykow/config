@@ -40,12 +40,6 @@ bindsym $mod+Shift+p exec eval $(op signin my)
 bindsym $mod+p exec --no-startup-id "rofi -modi 1pass:rofi-1pass -show 1pass"
 bindsym $mod+l exec --no-startup-id "rofi-wifi-menu"
 
-# theme switching
-set $script ~/workspace/personal/i3wm-themer/src/i3wm-themer.py
-set $config ~/workspace/personal/i3wm-themer/src/config.yaml
-set $theme ~/workspace/personal/i3wm-themer/src/themes/011.json
-bindsym $mod+9 exec --no-startup-id python $script --config $config --load $theme
-
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -290,6 +284,8 @@ exec --no-startup-id xautolock -time 10 -locker betterlockscreen --lock dimblur
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sh ~/.config/polybar/i3wmthemer_bar_launch.sh
+exec_always --no-startup-id sh ~/dotfile/configs/polybar/scripts/spotify/launchlistener.sh
+
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -324,13 +320,13 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Theme colors
-client.focused #b0c4bb #2f2f38 #b0c4bb #81a2be #81a2be
-client.focused_inactive #b0c4bb #2f2f38 #b0c4bb #688486 #688486
-client.unfocused #b0c4bb #2f2f38 #b0c4bb #688486 #688486
-client.urgent #b0c4bb #2f2f38 #b0c4bb #688486 #688486
-client.placeholder #b0c4bb #2f2f38 #b0c4bb #688486 #688486
+client.focused #e39866 #1e1e20 #e39866 #e39866 #e39866
+client.focused_inactive #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
+client.unfocused #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
+client.urgent #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
+client.placeholder #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
 
-client.background #2f2f38
+client.background #1e1e20
 
 #############################
 ### settings for i3-gaps: ###
