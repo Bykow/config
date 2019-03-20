@@ -39,6 +39,8 @@ bindsym $mod+Tab exec --no-startup-id "rofi -modi window -show window"
 bindsym $mod+Shift+p exec eval $(op signin my)
 bindsym $mod+p exec --no-startup-id "rofi -modi 1pass:rofi-1pass -show 1pass"
 bindsym $mod+l exec --no-startup-id "rofi-wifi-menu"
+bindsym $mod+k exec --no-startup-id gnome-screenshot -a -i
+
 
 
 ################################################################################################
@@ -212,8 +214,8 @@ workspace $ws16 output $monitor2
 # Open applications on specific workspaces
 assign [class="Sublime Text"] $ws4
 assign [class="Telegram"] $ws5
-assign [class="Discord"] $ws5
-assign [class="Thunderbird"] $ws6
+assign [class="Discord"] $ws6
+assign [class="Thunderbird"] $ws5
 assign [class="Spotify"] $ws8
 
 # Open specific applications in floating mode
@@ -285,6 +287,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sh ~/.config/polybar/i3wmthemer_bar_launch.sh
 exec_always --no-startup-id sh ~/dotfile/configs/polybar/scripts/spotify/launchlistener.sh
+exec_always --no-startup-id feh --bg-scale ~/workspace/personal/i3wm-themer/src/wallpapers/001.png
 
 
 

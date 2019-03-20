@@ -46,3 +46,5 @@ rofi.font:		 Deja Vu Sans Mono Book 12
 rofi.ssh-client:         ssh
 rofi.ssh-command:        {terminal} -e "{ssh-client} {host}"
 rofi.parse-known-hosts:  false
+
+Xcursor.size: 10
