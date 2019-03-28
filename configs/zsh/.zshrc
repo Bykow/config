@@ -24,6 +24,10 @@ COMPLETION_WAITING_DOTS="true"
 # PATH
 PATH=/home/bykow-i3/.local/bin:$PATH
 
+goshit () {
+    export GOPATH=$PWD/.gopath
+}
+
 # FZF
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -40,4 +44,3 @@ alias barconfig="code ~/.config/polybar/config"
 alias polyconfig="code ~/.config/polybar/config"
 alias polybarconfig="code ~/.config/polybar/config"
 alias yeet="yay -Syyu"
-
