@@ -1,0 +1,84 @@
+[global]
+    ### Display ###
+    monitor = 0
+    follow = mouse
+    geometry = "0-10+35"
+    indicate_hidden = yes
+    shrink = no
+    transparency = 0
+    notification_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+
+    frame_width = 0
+    frame_color = "#c6723a"
+    separator_color = frame
+
+    sort = yes
+    idle_threshold = 120
+
+
+    ### Text ###
+    font = Monospace 11
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+
+    ### Icons ###
+    icon_position = right
+
+    max_icon_size = 32
+
+    # Paths to default icons.
+    icon_path = /usr/share/icons/Vibrancy-Colors-Dark/status/16/
+
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+
+
+# Experimental features that may or may not work correctly. Do not expect them
+# to have a consistent behaviour across releases.
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#e6a57a"
+    foreground = "#1e1e20"
+    timeout = 10
+
+[urgency_normal]
+    background = "#dc7f41"
+    foreground = "#1e1e20"
+    timeout = 10
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0

@@ -286,6 +286,7 @@ exec --no-startup-id xautolock -time 10 -locker betterlockscreen --lock dimblur
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sh ~/.config/polybar/i3wmthemer_bar_launch.sh
+exec_always --no-startup-id sh ~/dotfile/configs/dunst/reload.sh
 exec_always --no-startup-id sh ~/dotfile/configs/polybar/scripts/spotify/launchlistener.sh
 exec_always --no-startup-id feh --bg-scale ~/workspace/personal/i3wm-themer/src/wallpapers/001.png
 
