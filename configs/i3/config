@@ -61,7 +61,7 @@ bindsym XF86AudioLowerVolume exec pamixer -d 10
 # Start Applications
 bindsym $mod+u exec pcmanfm
 bindsym $mod+i exec firefox
-bindsym $mod+o exec spotify
+bindsym $mod+o exec flatpak run com.spotify.Client
 bindsym $mod+Shift+u exec gksu pcmanfm
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -211,18 +211,10 @@ workspace $ws14 output $monitor2
 workspace $ws15 output $monitor2
 workspace $ws16 output $monitor2
 
-# Open applications on specific workspaces
-assign [class="Sublime Text"] $ws4
-assign [class="Telegram"] $ws5
-assign [class="Discord"] $ws6
-assign [class="Thunderbird"] $ws5
-assign [class="Spotify"] $ws8
-
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Pamac-manager"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -282,9 +274,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 10 -locker betterlockscreen --lock dimblur 
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id sh ~/.config/polybar/i3wmthemer_bar_launch.sh
+exec_always --no-startup-id sh ~/.config/polybar/scripts/polybars
 exec_always --no-startup-id sh ~/dotfile/configs/dunst/reload.sh
-exec_always --no-startup-id sh ~/dotfile/configs/polybar/scripts/spotify/launchlistener.sh
 exec_always --no-startup-id feh --bg-scale ~/workspace/personal/i3wm-themer/src/wallpapers/001.png
 
 

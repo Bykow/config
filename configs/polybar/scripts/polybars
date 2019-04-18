@@ -1,4 +1,3 @@
 killall polybar
-polybar top &
-polybar bottom &
+polybar main &
 polybar second &

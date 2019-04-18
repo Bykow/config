@@ -1,11 +1,21 @@
-[bar/i3wmthemer_bar]
+[colors]
+background = #1e1e20
+foreground = #e6a57a
+mode-foreground = #e39866
+focused-background = #e39866
+focused-foreground = #1e1e20
+unfocused-foreground = #e39866
+visible-foreground = #e39866
+urgent-background = #BA2922
+
+
+[bar/main]
 width = 100%
 height = 27
 radius = 0
 fixed-center = true
 
-background = #1e1e20
-foreground = #c5c8c6
+background = ${colors.background}
 
 line-size = 3
 line-color =
@@ -25,48 +35,15 @@ font-2 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3
 modules-center = date 
-modules-right = battery
-;modules-right = previous spotify next  battery
+modules-right = spotify wlan eth volume battery 
 
-;tray-position = right
-;tray-padding = 1
+tray-position = right
+tray-padding = 1
 
 
-[bar/i3wmthemer_barsecond]
-width = 100%
-height = 27
-radius = 0
-fixed-center = true
-bottom = true
-
-monitor = DP1
-
-background = #1e1e20
-foreground = #c5c8c6
-
-line-size = 3
-line-color =
-
-border-size = 0
-border-color =
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = "Source Code Pro Semibold:size=10;1"
-font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
-font-2 = "Font Awesome 5 Brands:size=10;1"
-
-modules-left = i3
-modules-center = date
-modules-right = battery
-;modules-right = previous spotify next  battery
-
-;tray-position = right
-;tray-padding = 1
+[bar/second]
+inherit = bar/main
+monitor = DP-1
 
 [module/i3]
 type = internal/i3
@@ -78,26 +55,26 @@ wrapping-scroll = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #1e1e20
-label-mode-background = #e39866
+label-mode-background = ${colors.background}
+label-mode-foreground = ${colors.mode-foreground}
 
 label-focused = %icon%
-label-focused-background = #dc7f41
-label-focused-foreground = #6b7443
+label-focused-background = ${colors.focused-background}
+label-focused-foreground = ${colors.focused-foreground}
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-background = #e39866
-label-unfocused-foreground = #1e1e20
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.unfocused-foreground}
 label-unfocused-padding = 2
 
 label-visible = %icon%
-label-visible-background = #e39866
-label-visible-foreground = #1e1e20
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.visible-foreground}
 label-visible-padding = 2
 
 label-urgent = %icon%
-label-urgent-background = #BA2922
+label-urgent-background = ${colors.urgent-background}
 label-urgent-padding = 2
 
 ws-icon-0 = "1;1"
@@ -119,35 +96,37 @@ ws-icon-15 = "16;VIII"
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp1s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = #e6a57a
-format-connected-background = #1e1e20
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background}
 format-connected-padding = 2
 label-connected = %essid%
+format-padding = 1
 
-format-disconnected =
+format-disconnected = 
 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = #1e1e20
+ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
-interface = enp0s3
+interface = enp0s20f0u1u2u1
 interval = 3.0
 
-format-connected-padding = 2
-format-connected-foreground = #e6a57a
-format-connected-background = #1e1e20
+format-connected-padding = 1
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background}
 format-connected-prefix = " "
-format-connected-prefix-foreground = #e6a57a
+format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
+format-padding = 1
 
 format-disconnected =
 
@@ -162,8 +141,8 @@ time = %H:%M:%S
 time-alt = %H:%M:%S
 
 format-prefix =
-format-foreground = #1e1e20
-format-background = #c6723a
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 format-padding = 2
 
 label = %date%    %time%
@@ -174,41 +153,25 @@ exec = ~/.config/polybar/scripts/battery
 interval = 1
 format-prefix = " "
 format-padding = 1
-format-foreground = #1e1e20
-format-background = #c6723a
-
-[module/previous]
-type = custom/script
-interval = 86400
-format = "%{T3}<label>"
-format-padding = 2
-; Previous song icon
-exec = echo ""
-format-foreground = #1e1e20
-format-background = #c6723a
-line-size = 1
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-
-[module/next]
-type = custom/script
-interval = 86400
-format = "%{T3}<label>"
-format-padding = 2
-; Next song icon
-exec = echo ""
-format-foreground = #1e1e20
-format-background = #c6723a
-line-size = 1
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 
 [module/spotify]
 type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = "python ~/dotfile/configs/polybar/scripts/spotify -f '{play_pause} {artist}: {song}'"
-format-underline = #1e1e20
+exec = "python ~/dotfile/configs/polybar/scripts/spotify -f '{play_pause} {artist}: {song}'" 
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 1
 
+[module/volume]
+type = custom/script
+exec = ~/dotfile/configs/polybar/scripts/getvolume
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 1
 
 [settings]
 screenchange-reload = true
