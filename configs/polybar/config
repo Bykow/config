@@ -8,6 +8,9 @@ unfocused-foreground = #e39866
 visible-foreground = #e39866
 urgent-background = #BA2922
 
+[monitors]
+monitor1 = eDP-1
+monitor2 = DP-1
 
 [bar/main]
 width = 100%
@@ -43,7 +46,8 @@ tray-padding = 1
 
 [bar/second]
 inherit = bar/main
-monitor = DP-1
+monitor = ${monitors.monitor2}
+modules-left = i3second
 
 [module/i3]
 type = internal/i3
@@ -85,6 +89,9 @@ ws-icon-4 = "5;5"
 ws-icon-5 = "6;6"
 ws-icon-6 = "7;7"
 ws-icon-7 = "8;8"
+
+[module/i3second]
+inherit = module/i3
 ws-icon-8 = "9;I"
 ws-icon-9 = "10;II"
 ws-icon-10 = "11;III"
