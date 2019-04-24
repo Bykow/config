@@ -1,3 +1,6 @@
+;
+; COLORS
+;
 [colors]
 background = #1e1e20
 foreground = #e6a57a
@@ -6,12 +9,18 @@ focused-background = #e39866
 focused-foreground = #1e1e20
 unfocused-foreground = #e39866
 visible-foreground = #e39866
-urgent-background = #BA2922
+urgent-background = #ba2922
 
+;
+; MONITORS
+;
 [monitors]
 monitor1 = eDP-1
 monitor2 = DP-1
 
+;
+; BARS
+;
 [bar/main]
 width = 100%
 height = 27
@@ -38,16 +47,28 @@ font-2 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3
 modules-center = date 
-modules-right = spotify wlan eth volume battery 
+modules-right = spotify wlan eth temperature volume battery 
 
 tray-position = right
 tray-padding = 1
-
 
 [bar/second]
 inherit = bar/main
 monitor = ${monitors.monitor2}
 modules-left = i3second
+
+;
+; MODULES
+;
+[module/default]
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background}
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected-foreground = ${colors.foreground}
+interval = 1
+format-padding = 1
 
 [module/i3]
 type = internal/i3
@@ -55,7 +76,6 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
 label-mode-padding = 2
@@ -102,18 +122,15 @@ ws-icon-14 = "15;VII"
 ws-icon-15 = "16;VIII"
 
 [module/wlan]
+inherit = module/default
 type = internal/network
 interface = wlp1s0
-interval = 3.0
+interval = 3
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
-format-connected-padding = 2
-label-connected = %essid%
-format-padding = 1
-
-format-disconnected = 
+format-connected-padding = 1
+label-connected = %essid% %local_ip%
+;| %downspeed:min%  %upspeed:min%
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -123,62 +140,52 @@ ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
+inherit = module/default
 type = internal/network
 interface = enp0s20f0u1u2u1
-interval = 3.0
+interval = 3
 
 format-connected-padding = 1
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
-format-padding = 1
-
-format-disconnected =
+;| %downspeed:min%   %upspeed:min%
 
 [module/date]
+inherit = module/default
 type = internal/date
-interval = 1
 
 date = %d.%m.%y
 date-alt = " %Y-%m-%d"
-
 time = %H:%M:%S
 time-alt = %H:%M:%S
-
-format-prefix =
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 2
 
 label = %date%    %time%
 
 [module/battery]
+inherit = module/default
 type = custom/script
 exec = ~/.config/polybar/scripts/battery
-interval = 1
 format-prefix = " "
-format-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+
+[module/temperature]
+inherit = module/default
+type = internal/temperature
+thermal-zone = 0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+
+warn-temperature = 65
 
 [module/spotify]
+inherit = module/default
 type = custom/script
-interval = 1
 format-prefix = " "
 format = <label>
 exec = "python ~/dotfile/configs/polybar/scripts/spotify -f '{play_pause} {artist}: {song}'" 
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 1
 
 [module/volume]
+inherit = module/default
 type = custom/script
 exec = ~/dotfile/configs/polybar/scripts/getvolume
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 1
 
 [settings]
 screenchange-reload = true

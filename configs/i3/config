@@ -278,7 +278,7 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sh ~/.config/polybar/scripts/polybars
 exec_always --no-startup-id sh ~/dotfile/configs/dunst/reload.sh
 exec_always --no-startup-id feh --bg-scale ~/workspace/personal/i3wm-themer/src/wallpapers/001.png
-
+exec --no-startup-id nm-applet
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
