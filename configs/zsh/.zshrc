@@ -7,7 +7,7 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/bykow-i3/.zshrc'
+zstyle :compinstall filename '/home/bykow/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 COMPLETION_WAITING_DOTS="true"
 
 # PATH
-PATH=/home/bykow-i3/.local/bin:$PATH
+PATH=/home/bykow/.local/bin:/home/bykow/.cargo/bin:$PATH
 
 goshit () {
     export GOPATH=$PWD/.gopath

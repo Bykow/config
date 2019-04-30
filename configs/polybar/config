@@ -56,6 +56,8 @@ tray-padding = 1
 inherit = bar/main
 monitor = ${monitors.monitor2}
 modules-left = i3second
+; prevents the overload and keeps the tray on main bar
+tray-position = 
 
 ;
 ; MODULES
@@ -142,7 +144,7 @@ ramp-signal-foreground = ${colors.foreground}
 [module/eth]
 inherit = module/default
 type = internal/network
-interface = enp0s20f0u1u2u1
+interface = enp0s20f0u4
 interval = 3
 
 format-connected-padding = 1
