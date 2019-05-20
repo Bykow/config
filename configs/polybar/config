@@ -126,7 +126,7 @@ ws-icon-15 = "16;VIII"
 [module/wlan]
 inherit = module/default
 type = internal/network
-interface = wlp1s0
+interface = wlan0
 interval = 3
 
 format-connected = <ramp-signal> <label-connected>
@@ -144,7 +144,7 @@ ramp-signal-foreground = ${colors.foreground}
 [module/eth]
 inherit = module/default
 type = internal/network
-interface = enp0s20f0u4
+interface = eth0
 interval = 3
 
 format-connected-padding = 1

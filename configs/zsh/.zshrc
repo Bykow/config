@@ -36,7 +36,7 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 # ALIAS
-alias fixwifi="sudo ip link set wlp1s0 down; sudo ip link set wlp1s0 up"
+alias fixwifi="sudo ip link set wlan0 down; sudo ip link set wlan0 up"
 alias fixmonitor="autorandr -c && i3-msg restart"
 alias zshconfig="code ~/.zshrc"
 alias dunstconfig="code ~/.config/dunst/dunstrc"
