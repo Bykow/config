@@ -17,7 +17,6 @@ urgent-background = #ba2922
 [monitors]
 monitor1 = eDP-1
 monitor2 = DP-1
-
 ;
 ; BARS
 ;
@@ -57,7 +56,7 @@ inherit = bar/main
 monitor = ${monitors.monitor2}
 modules-left = i3second
 ; prevents the overload and keeps the tray on main bar
-tray-position = 
+; tray-position = 
 
 ;
 ; MODULES
@@ -75,8 +74,7 @@ format-padding = 1
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
+index-sort = true  
 
 pin-workspaces = true
 
