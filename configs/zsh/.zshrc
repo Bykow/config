@@ -13,6 +13,12 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+plugins=(
+    git
+    command-not-found
+    git-flow
+)
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="custom"
@@ -46,3 +52,6 @@ alias polyconfig="code ~/.config/polybar/config"
 alias polybarconfig="code ~/.config/polybar/config"
 alias vim="nvim"
 alias update="yay && flatpak update"
+alias sshadd="ssh-add && ssh-add ~/.ssh/id_github"
+
+eval $(thefuck --alias)
