@@ -64,15 +64,12 @@ bindsym XF86AudioRaiseVolume exec pamixer -i 10
 bindsym XF86AudioLowerVolume exec pamixer -d 10
 
 # Start Applications
-bindsym $mod+u exec pcmanfm
+bindsym $mod+u exec nautilus
 bindsym $mod+i exec firefox
 bindsym $mod+o exec flatpak run com.spotify.Client
-bindsym $mod+Shift+u exec gksu pcmanfm
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
