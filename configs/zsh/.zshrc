@@ -52,6 +52,6 @@ alias polyconfig="code ~/.config/polybar/config"
 alias polybarconfig="code ~/.config/polybar/config"
 alias vim="nvim"
 alias update="yay && flatpak update"
-alias sshadd="ssh-add && ssh-add ~/.ssh/id_github"
+alias sshadd="ssh-add && ssh-add ~/.ssh/id_github && ssh-add ~/.ssh/id_pi"
 
 eval $(thefuck --alias)

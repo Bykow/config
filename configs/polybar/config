@@ -2,14 +2,18 @@
 ; COLORS
 ;
 [colors]
-background = #1e1e20
-foreground = #e6a57a
-mode-foreground = #e39866
-focused-background = #e39866
-focused-foreground = #1e1e20
-unfocused-foreground = #e39866
-visible-foreground = #e39866
+background = #1d1f21
+foreground = #c5c8c6
+unfocused-background = #282a2e
+unfocused-foreground = #c5c8c6
+mode-background = #282a2e
+mode-foreground = #c5c8c6
+focused-foreground = #6b7443
+focused-background = #373b41
+visible-background = #282a2e
+visible-foreground = #c5c8c6
 urgent-background = #ba2922
+
 
 ;
 ; MONITORS

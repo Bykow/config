@@ -308,13 +308,13 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Theme colors
-client.focused          #c6723a #c6723a #000000 #e39866 #e39866
-client.focused_inactive #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
-client.unfocused        #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
-client.urgent           #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
-client.placeholder      #e39866 #1e1e20 #e39866 #dc7f41 #dc7f41
+client.background:       #1d1f21
+client.focused:          #707880 #1d1f21 #707880 #8c9440 #8c9440
+client.unfocused:        #707880 #1d1f21 #707880 #5f819d #5f819d
+client.focused_inactive: #707880 #1d1f21 #707880 #5f819d #5f819d
+client.urgent:           #707880 #1d1f21 #707880 #5f819d #5f819d
+client.placeholder:      #707880 #1d1f21 #707880 #5f819d #5f819d
 
-client.background       #1e1e20
 
 #############################
 ### settings for i3-gaps: ###
