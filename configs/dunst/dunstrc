@@ -12,7 +12,7 @@
     horizontal_padding = 8
 
     frame_width = 0
-    frame_color = "#c6723a"
+    frame_color = "#c5c8c6"
     separator_color = frame
 
     sort = yes
@@ -67,13 +67,13 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#e6a57a"
-    foreground = "#1e1e20"
+    background = "#282a2e"
+    foreground = "#c5c8c6"
     timeout = 10
 
 [urgency_normal]
-    background = "#dc7f41"
-    foreground = "#1e1e20"
+    background = "#373b41"
+    foreground = "#c5c8c6"
     timeout = 10
 
 [urgency_critical]

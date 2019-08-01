@@ -64,7 +64,7 @@ bindsym XF86AudioRaiseVolume exec pamixer -i 10
 bindsym XF86AudioLowerVolume exec pamixer -d 10
 
 # Start Applications
-bindsym $mod+u exec nautilus
+bindsym $mod+u exec pcmanfm
 bindsym $mod+i exec firefox
 bindsym $mod+o exec flatpak run com.spotify.Client
 bindsym Print exec --no-startup-id i3-scrot
