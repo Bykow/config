@@ -174,7 +174,6 @@ format-prefix = " "
 [module/memory]
 inherit = module/default
 type = internal/memory
-interval = 1
 format = <label>
 format-prefix = " "
 label = %percentage_used%%
@@ -182,7 +181,6 @@ label = %percentage_used%%
 [module/cpu]
 inherit = module/default
 type = internal/cpu
-interval = 1
 format = <label>
 format-prefix = " "
 label = %percentage%%
