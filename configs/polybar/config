@@ -52,8 +52,8 @@ modules-left = i3
 modules-center = date
 modules-right = wlan eth pulseaudio-tail cpu memory battery
 
-tray-position = right
-tray-padding = 1
+; tray-position = right
+; tray-padding = 1
 
 [bar/second]
 inherit = bar/main
@@ -173,15 +173,19 @@ format-prefix = " "
 
 [module/memory]
 inherit = module/default
-type = custom/script
-exec = ~/.config/polybar/scripts/memory.sh
-click-left = ~/.config/polybar/scripts/memory.sh --popup
+type = internal/memory
+interval = 1
+format = <label>
+format-prefix = " "
+label = %percentage_used%%
 
 [module/cpu]
 inherit = module/default
-type = custom/script
-exec = ~/.config/polybar/scripts/cpu.sh
-click-left = ~/.config/polybar/scripts/cpu.sh --popup
+type = internal/cpu
+interval = 1
+format = <label>
+format-prefix = " "
+label = %percentage%%
 
 [module/pulseaudio-tail]
 inherit = module/default
